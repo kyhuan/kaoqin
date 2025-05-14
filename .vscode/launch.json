@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask":  "build",
+            "name": ".NET Core Launch (console)",
+            "program": "${workspaceFolder}/ConsleVSCode/bin/Debug/net8.0/ConsleVSCode.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "pipeTransport": {
+                "pipeCwd": "${workspaceFolder}",
+        
+                "pipeProgram": "cmd",
+                "pipeArgs": ["/d"],
+                "debuggerPath": "d:\\Code\\netcoredbg-win64\\netcoredbg\\netcoredbg.exe",
+                "debuggerArgs": ["--interpreter=vscode"],
+                "quoteArgs": true
+              },
+        }
+    ]
+}
