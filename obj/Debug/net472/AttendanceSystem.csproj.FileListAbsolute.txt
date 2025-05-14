@@ -27,3 +27,4 @@ D:\Code\cursor\kaoqin\bin\Debug\net472\AForge.Video.dll
 D:\Code\cursor\kaoqin\bin\Debug\net472\AForge.Video.DirectShow.dll
 D:\Code\cursor\kaoqin\bin\Debug\net472\zxing.dll
 D:\Code\cursor\kaoqin\bin\Debug\net472\zxing.presentation.dll
+D:\Code\cursor\kaoqin\obj\Debug\net472\AttendanceSystem.sourcelink.json

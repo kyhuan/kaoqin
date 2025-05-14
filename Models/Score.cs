@@ -7,12 +7,12 @@ namespace AttendanceSystem.Models
         public DateTime Date { get; set; }
         public string StudentId { get; set; }
         public string Name { get; set; }
-        public int ScoreValue { get; set; }
+        public string ScoreValue { get; set; }
         public string Remark { get; set; }
 
         public Score() { }
 
-        public Score(DateTime date, string studentId, string name, int scoreValue, string remark)
+        public Score(DateTime date, string studentId, string name, string scoreValue, string remark)
         {
             Date = date;
             StudentId = studentId;

@@ -22,6 +22,14 @@ namespace AttendanceSystem.Forms
 
         private void ScoreForm_Load(object sender, EventArgs e)
         {
+            // 初始化评分等级下拉框
+            comboBoxScoreValue.Items.Clear();
+            comboBoxScoreValue.Items.AddRange(ExcelHelper.ScoreLevels);
+            if (comboBoxScoreValue.Items.Count > 0)
+            {
+                comboBoxScoreValue.SelectedIndex = 0;
+            }
+            
             RefreshAllStudents();
             ClearSelection();
         }
@@ -102,17 +110,10 @@ namespace AttendanceSystem.Forms
         {
             if (string.IsNullOrWhiteSpace(txtScoreStudentId.Text) ||
                 string.IsNullOrWhiteSpace(txtScoreName.Text) ||
-                string.IsNullOrWhiteSpace(txtScoreValue.Text) ||
+                comboBoxScoreValue.SelectedItem == null ||
                 string.IsNullOrWhiteSpace(txtRemark.Text))
             {
                 MessageBox.Show("请填写所有评分信息！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // 验证分数是否为整数
-            if (!int.TryParse(txtScoreValue.Text, out int scoreValue))
-            {
-                MessageBox.Show("分数必须是整数！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -123,7 +124,7 @@ namespace AttendanceSystem.Forms
                     Date = DateTime.Today,
                     StudentId = txtScoreStudentId.Text.Trim(),
                     Name = txtScoreName.Text.Trim(),
-                    ScoreValue = scoreValue,
+                    ScoreValue = comboBoxScoreValue.SelectedItem.ToString(),
                     Remark = txtRemark.Text.Trim()
                 };
 
@@ -143,7 +144,10 @@ namespace AttendanceSystem.Forms
         {
             txtScoreStudentId.Clear();
             txtScoreName.Clear();
-            txtScoreValue.Clear();
+            if (comboBoxScoreValue.Items.Count > 0)
+            {
+                comboBoxScoreValue.SelectedIndex = 0;
+            }
             txtRemark.Clear();
             lblRandomResult.Text = "点名结果显示区";
             listBoxSearchResults.DataSource = null;

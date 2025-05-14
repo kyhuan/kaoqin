@@ -43,7 +43,7 @@ namespace AttendanceSystem.Forms
             this.btnSaveScore = new System.Windows.Forms.Button();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtScoreValue = new System.Windows.Forms.TextBox();
+            this.comboBoxScoreValue = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtScoreName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -167,7 +167,7 @@ namespace AttendanceSystem.Forms
             this.groupBox3.Controls.Add(this.btnSaveScore);
             this.groupBox3.Controls.Add(this.txtRemark);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.txtScoreValue);
+            this.groupBox3.Controls.Add(this.comboBoxScoreValue);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.txtScoreName);
             this.groupBox3.Controls.Add(this.label3);
@@ -247,21 +247,23 @@ namespace AttendanceSystem.Forms
             this.label5.TabIndex = 6;
             this.label5.Text = "备注";
             // 
-            // txtScoreValue
+            // comboBoxScoreValue
             // 
-            this.txtScoreValue.Location = new System.Drawing.Point(60, 91);
-            this.txtScoreValue.Name = "txtScoreValue";
-            this.txtScoreValue.Size = new System.Drawing.Size(100, 23);
-            this.txtScoreValue.TabIndex = 5;
+            this.comboBoxScoreValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxScoreValue.FormattingEnabled = true;
+            this.comboBoxScoreValue.Location = new System.Drawing.Point(60, 91);
+            this.comboBoxScoreValue.Name = "comboBoxScoreValue";
+            this.comboBoxScoreValue.Size = new System.Drawing.Size(150, 25);
+            this.comboBoxScoreValue.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 94);
+            this.label4.Location = new System.Drawing.Point(10, 94);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 17);
+            this.label4.Size = new System.Drawing.Size(44, 17);
             this.label4.TabIndex = 4;
-            this.label4.Text = "分数";
+            this.label4.Text = "评分等级";
             // 
             // txtScoreName
             // 
@@ -342,7 +344,7 @@ namespace AttendanceSystem.Forms
         private System.Windows.Forms.Button btnSaveScore;
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtScoreValue;
+        private System.Windows.Forms.ComboBox comboBoxScoreValue;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtScoreName;
         private System.Windows.Forms.Label label3;

@@ -14,6 +14,12 @@ namespace AttendanceSystem.Helpers
         private const string ATTENDANCE_SHEET = "Attendance";
         private const string SCORE_SHEET = "Scores";
 
+        // 定义评分等级常量
+        public static readonly string[] ScoreLevels = new string[] 
+        { 
+            "完美", "优秀", "中等", "合格", "不合格" 
+        };
+
         public ExcelHelper(string filePath)
         {
             _filePath = filePath;
@@ -47,7 +53,7 @@ namespace AttendanceSystem.Helpers
                 scoreSheet.Cell(1, 1).Value = "日期";
                 scoreSheet.Cell(1, 2).Value = "学号";
                 scoreSheet.Cell(1, 3).Value = "姓名";
-                scoreSheet.Cell(1, 4).Value = "分数";
+                scoreSheet.Cell(1, 4).Value = "评分等级";
                 scoreSheet.Cell(1, 5).Value = "备注";
 
                 // 保存工作簿
@@ -239,7 +245,7 @@ namespace AttendanceSystem.Helpers
                 worksheet.Cell(newRow, 1).Value = score.Date;
                 worksheet.Cell(newRow, 2).Value = score.StudentId;
                 worksheet.Cell(newRow, 3).Value = score.Name;
-                worksheet.Cell(newRow, 4).Value = score.ScoreValue;
+                worksheet.Cell(newRow, 4).Value = score.ScoreValue; // 现在存储的是评分等级字符串
                 worksheet.Cell(newRow, 5).Value = score.Remark;
 
                 workbook.SaveAs(_filePath);
@@ -265,7 +271,7 @@ namespace AttendanceSystem.Helpers
                             Date = rowDate,
                             StudentId = row.Cell(2).GetString(),
                             Name = row.Cell(3).GetString(),
-                            ScoreValue = row.Cell(4).GetValue<int>(),
+                            ScoreValue = row.Cell(4).GetString(), // 获取评分等级字符串
                             Remark = row.Cell(5).GetString()
                         });
                     }
@@ -294,7 +300,7 @@ namespace AttendanceSystem.Helpers
                             Date = row.Cell(1).GetDateTime(),
                             StudentId = rowStudentId,
                             Name = row.Cell(3).GetString(),
-                            ScoreValue = row.Cell(4).GetValue<int>(),
+                            ScoreValue = row.Cell(4).GetString(), // 获取评分等级字符串
                             Remark = row.Cell(5).GetString()
                         });
                     }
